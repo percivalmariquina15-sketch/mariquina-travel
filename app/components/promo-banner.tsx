@@ -18,7 +18,7 @@ export default function PromoBanner() {
               rates. Message us today and drive home your perfect vehicle.
             </p>
             <a
-              href="https://www.messenger.com/t/100039285796209"
+              href="https://www.messenger.com/t/256559060865144"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 flex w-fit items-center gap-2 rounded-lg bg-white px-6 py-3 text-[13px] font-bold text-primary transition-colors hover:bg-fog"
@@ -30,7 +30,7 @@ export default function PromoBanner() {
 
           <div className="relative hidden lg:block">
             <Image
-              src="/images/vehicles/van-10-staria.jpg"
+              src="/images/vehicles/van.jpg"
               alt="Van on the road for long-term rental"
               fill
               sizes="(min-width: 1024px) 50vw, 0vw"

@@ -69,8 +69,9 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 ### D. Our Vehicles Section
 - Section: content-height (determined by content), padding `py-16 sm:py-20`, light bg `#F8FAFC`.
 - Header bar: left title "Our Vehicles" 24px Bold `#1E293B`.
-- Grid: 4 columns (8 cards; 2 rows of 4). Card: width ~270px, radius 12px, border `1px solid #E2E8F0`, white bg.
-- Card structure: image top (height 140px, rounded top corners `12px 12px 0 0`, object-fit cover); title ("Van (10-Seater)") 14px Bold `#1E293B`; sub-trim ("With or without driver") 12px Regular `#64748B`; price ("₱4,500/day") 16px Bold `#1E293B`; spec icons row (passengers, transmission, fuel) 11px `#64748B`; location footer (pin icon + text) 11px Regular `#64748B`; "Book Now" button (blue, radius 8px, height 40px, 13px Semi-bold white) linking to the contact inquiry form `#inquiry-form` (smooth-scrolls down the page).
+- Grid: 3 columns (3 cards; 1 row of 3), `sm:grid-cols-2 md:grid-cols-3`. Card: radius 12px, border `1px solid #E2E8F0`, white bg.
+- Card structure: image top (`aspect-[5/6]` subtle portrait, rounded top corners `12px 12px 0 0`, object-fit cover, subtle hover zoom); title ("Van") 18px Bold `#1E293B`; seats row (users icon + "12–19 seats") 14px Regular `#64748B`; price ("₱5,000–₱7,000/day") 20px Bold `#1E293B`; two buttons side by side (`grid-cols-2 gap-3`, height 40px, radius 8px, 14px Semi-bold): **Book Now** solid blue `#0E52D2` (hover `#0345BA`) linking to the contact inquiry form `#inquiry-form`; **View Photos** outline (`1px solid #0E52D2`, blue text, hover light-blue tint bg `#EFF6FF`) linking to the gallery page `/vehicles/{slug}`. Cards are not whole-card links (two buttons live inside).
+- The three vehicles: **Van** (12–19 seats, ₱5,000–₱7,000/day), **Sedan** (4 seats, ₱2,500/day), **7-Seater** (7 seats, ₱3,500/day).
 
 ### E. How It Works Section (3-step)
 - Section: `id="how-it-works"`, content-height (determined by content), padding `py-16 sm:py-20`, white bg.
@@ -114,16 +115,16 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 - Container: navy CTA band — radius 16px, gradient `#0B192E` → `#071120`, centered, padding 48px vertical (64px on sm+).
 - Content: heading "Ready to Get Started?" 24px → 28px Bold white; sub copy 14px `rgba(255,255,255,0.70)` max-width 36rem.
 - Button row (centered, wraps): "Chat on Messenger" solid `#0E52D2` white text; "WhatsApp" white outline (`1px solid rgba(255,255,255,0.40)`, `rgba(255,255,255,0.10)` bg, hover `rgba(255,255,255,0.15)`), both 14px Semi-bold, height 44px, radius 8px.
-- Contact chips row (centered, wraps, gap 24px x 12px): 13px `rgba(255,255,255,0.85)` (hover white), icon 16px + "Label · **value**" inline links — **Call Ms. Angie** (`tel:+639926723651`), **WhatsApp** (`https://wa.me/639628408580`), **Tour Pilot** (`tel:+639917484076`), **Email Us** (`mailto:mariquinatravel@gmail.com`).
+- Contact chips row (centered, wraps, gap 24px x 12px): 13px `rgba(255,255,255,0.85)` (hover white), icon 16px + "Label · **value**" inline links — **Call Ms. Angie** (`tel:+639926723651`), **WhatsApp** (`https://wa.me/639628408580`), **Tour Pilot** (`tel:+639917484076`), **Email Us** (`mailto:mariquinatravel@gmail.com`), **GCash — Percival Mariquina** 0962 840 8580 (`tel:+639628408580`), **GCash — Angelica Tongol** 0992 672 3651 (`tel:+639926723651`) — GCash chips use the wallet icon.
 - Below the band: "Book Your Vehicle" mailto form (name, email/contact, vehicle needed — plain textbox, pickup date, return date, message) in a white card matching the same border/radius language. Submit "Book Now" opens the client's email app (no backend). Inputs use `text-base` (16px) on mobile → `text-sm` (14px) on `sm+` to prevent iOS Safari auto-zoom on focus.
 
 ### L. Main Footer
 - Background `#0B192E`, white/light gray text. 5-column grid:
   - Col 1 (Brand): logo, tagline, social icon row (Messenger, WhatsApp, Email).
-  - Col 2 (Vehicles): Sedans, SUVs & MPVs, Vans (6-Seater), Vans (10-Seater), Airport Transfers, Monthly Rentals.
+  - Col 2 (Vehicles): Sedans, 7-Seaters, Vans (12–19 Seaters), Airport Transfers, Monthly Rentals.
   - Col 3 (Services): Self-Drive, With Driver, Group Tours, Corporate Bookings.
   - Col 4 (Help): How It Works, Frequently Asked Questions, Terms of Service, Privacy Policy.
-  - Col 5 (Contact): Ms. Angie `0992 672 3651`, WhatsApp `0962 840 8580`, Tour Pilot `0991 748 4076`, email, operating hours.
+  - Col 5 (Contact): Ms. Angie `0992 672 3651`, WhatsApp `0962 840 8580`, Tour Pilot `0991 748 4076`, email, GCash — Percival Mariquina `0962 840 8580`, GCash — Angelica Tongol `0992 672 3651`, operating hours.
 - Typography: category headlines 14px Bold white; links 13px Regular `#94A3B8`, vertical spacing 10px.
 
 ### M. Copyright Sub-Footer
@@ -132,7 +133,23 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 ### N. Floating Messenger Button
 - Overlay widget (not part of the vertical flow): fixed to viewport bottom-right (`bottom 20px, right 20px`), `z-50`, visible on all screen sizes.
 - 56×56 circle, `#0E52D2` bg (hover `#0345BA`), white Messenger icon 24px. Flat — no shadow (matches global no-shadow rule).
-- Links to `https://www.messenger.com/t/100039285796209` (new tab), `aria-label="Chat on Messenger"`.
+- Links to `https://www.messenger.com/t/256559060865144` (new tab), `aria-label="Chat on Messenger"`.
+
+### O. Vehicle Gallery Page (`/vehicles/[slug]`)
+- Standalone page (own layout — no home header/footer), served for `van`, `7-seater`, and `sedan` (prerendered via `generateStaticParams`; unknown slugs → 404). Generated from shared data in `app/lib/vehicles.ts` (slug, name, seats, rate, images, page flag). Shows every photo for the vehicle: Van 14 (`van.jpg`–`van14.jpg`), 7-Seater 5 (`7-seater.jpg`–`7-seater5.jpg`), Sedan 2 (`sedan.jpg`, `sedan2.jpg`).
+- Top bar: sticky, 64px tall, white bg, `1px solid #E2E8F0` bottom border. Brand only (logo 28px + "Mariquina" ink / "Travel" amber, 20px Bold + tagline 10px uppercase `#64748B`) linking `/`.
+- Body: light bg `#F8FAFC`, container `max-w-[1200px]`, padding `py-10 sm:py-14`. Above the title: "← Back to Vehicles" link (14px Semi-bold `#0E52D2`, hover `#0345BA`, chevron-left icon) → `/#vehicles`. Title: vehicle name 24px → 28px Bold `#1E293B` (photos only — no price/info).
+- Photo grid: 1 → 2 (sm) → 3 (lg) columns, gap 20px. Each photo in a white card (radius 12px, border `1px solid #E2E8F0`, hover border `#0E52D2`), `aspect-[4/3]` `object-cover`, full column width. Each card is a button opening the **lightbox**.
+- Lightbox (`VehicleGallery` client component): fixed full-viewport overlay `z-60`, `#0B192E` at 95% opacity. Photo centered `object-contain`, max 70vh tall, max-w-4xl. Controls: close (top-right), prev/next (left/right center) — 40–44px circles, `1px solid rgba(255,255,255,0.30)` border, `rgba(255,255,255,0.10)` bg, hover `0.20` (same language as the hero scroll-hint badge); photo counter bottom-center ("3 / 14", 14px Semi-bold white/80). Clicking the backdrop closes; keyboard Esc closes, ArrowLeft/ArrowRight navigate; body scroll locks while open.
+- Home page cards: each card has a **Book Now** button (solid primary → `#inquiry-form`) and a **View Photos** button (outline → `/vehicles/{slug}`); the card itself is not a link.
+
+### D2. Joiners & Group Exclusive Tours Section
+- Section: `id="tours"`, content-height, padding `py-16 sm:py-20`, light bg `#F8FAFC` (sits between the promo banner and FAQ).
+- Header: "Joiners & Group Exclusive Tours" 24px Bold centered + subtitle 14px muted centered, max-width 36rem: "We are looking for joiners and group-exclusive tours — join us to the country's most loved destinations."
+- Grid: 3 destination cards (`sm:grid-cols-2 md:grid-cols-3`, gap 20px), same card language as vehicles: white, radius 12px, border `1px solid #E2E8F0`.
+- Card structure: photo top (`aspect-[4/3]`, object-fit cover); destination name 18px Bold `#1E293B`; tagline 14px Regular `#64748B`. Destinations: **Baguio** ("City of Pines", `baguio.jpg`), **Ilocos Norte** ("Windmills & Heritage", `ilocos-norte.jpg`), **Bicol** ("Mayon Volcano & Beach Escapes", `bicol.jpg`).
+- Bottom-center CTA: "Message Us to Book" solid blue button (44px, radius 8px, 14px Bold white, Messenger icon) → Messenger (same as How It Works).
+- Photos: free-license stock (Unsplash/Pexels) in `public/images/destinations/`.
 
 ---
 
@@ -141,7 +158,7 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 - **Breakpoints (Tailwind default):** `sm` 640px · `md` 768px · `lg` 1024px · `xl` 1280px. Build mobile-first: base styles = phone, then layer up.
 - **Nav:** desktop links + phone show at `xl`; hamburger panel below `xl` (link rows 44px tall). Phone number hidden below `md` (available in the mobile panel); "Message Us" button hidden below `sm`.
 - **Hero:** `min-h-svh` (not `min-h-screen`) so the full-height section uses the small viewport height — no URL-bar jump on mobile browsers. Headline 36px mobile → 52px `sm` → 56px `lg`, wraps naturally. Scroll-hint badge sits `bottom-24px`; content padded `pt-28 pb-20`.
-- **Grids:** vehicles `1 → 2 (sm) → 3 (md) → 4 (lg)`; how-it-works `1 → 3 (sm)`; why-us stacks to 1 col below `lg` (image below text); promo banner 1 col below `lg` (image hidden, gradient panel only); footer `1 → 2 (sm) → 5 (lg)`.
+- **Grids:** vehicles `1 → 2 (sm) → 3 (md)`; how-it-works `1 → 3 (sm)`; why-us stacks to 1 col below `lg` (image below text); promo banner 1 col below `lg` (image hidden, gradient panel only); footer `1 → 2 (sm) → 5 (lg)`.
 - **Testimonials:** below `md`, arrows hide and cards are full-width with native snap scroll (`snap-x snap-mandatory`, swipeable).
 - **Forms:** inputs `text-base` (16px) below `sm` — prevents iOS auto-zoom; date row stacks to 1 col below `sm`; submit button full-width.
 - **Tap targets:** interactive elements ≥40px tall minimum (buttons `h-10`+; nav rows 44px; icon buttons 40×40).
@@ -189,4 +206,4 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 - Radius language: buttons 8px, cards 12px, widget/banners 16px, circular items 50%.
 - Shadows: none — cards are flat and separated by borders only (`1px solid #E2E8F0`). No glow/colored shadows.
 - **Performance & caching:** deploy target is **Vercel** (auto CDN edge, brotli, sharp image optimizer). `next.config.ts` sets `images.quality: 80` with `formats: ['image/avif', 'image/webp']` — served derivatives are AVIF (WebP fallback) at 1×/2×/3× srcsets, so images render retina-sharp (HD) while staying light; the full-resolution originals in `public/images/` are never modified and remain the HD masters. Public assets (`/images/*`, `favicon.ico`, `icon.png`, `apple-icon.png`) are served with `Cache-Control: public, max-age=31536000, immutable` — replace-content cache busting = rename the file (see below).
-- All mockup images live in `public/images/` (hero, vehicles/, avatars/). Vehicle images: `sedan-honda.jpg` (white sedan), `compact-suv.jpg` (gray SUV), `mpv-carnival.jpg` (silver minivan), `van-6-traveller.jpg` (passenger van), `van-10-staria.jpg` (modern white van). Rename the file when replacing content to defeat browser caching, then update the reference in `app/components/vehicles.tsx` / `promo-banner.tsx`.
+- All mockup images live in `public/images/` (hero, vehicles/, avatars/). Vehicle images: `sedan.jpg`/`sedan2.jpg`, `7-seater.jpg`–`7-seater5.jpg`, `van.jpg`–`van14.jpg` — full lists live in `app/lib/vehicles.ts`. Rename the file when replacing content to defeat browser caching, then update the reference in `app/lib/vehicles.ts` / `promo-banner.tsx`.

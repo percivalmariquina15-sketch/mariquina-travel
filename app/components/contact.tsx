@@ -4,6 +4,7 @@ import {
   MailIcon,
   MessengerIcon,
   PhoneIcon,
+  WalletIcon,
   WhatsAppIcon,
 } from "./icons";
 
@@ -32,6 +33,18 @@ const contactColumns = [
     value: "mariquinatravel@gmail.com",
     href: "mailto:mariquinatravel@gmail.com",
   },
+  {
+    icon: WalletIcon,
+    title: "GCash — Percival Mariquina",
+    value: "0962 840 8580",
+    href: "tel:+639628408580",
+  },
+  {
+    icon: WalletIcon,
+    title: "GCash — Angelica Tongol",
+    value: "0992 672 3651",
+    href: "tel:+639926723651",
+  },
 ];
 
 const fieldClass =
@@ -52,7 +65,7 @@ export default function Contact() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="https://www.messenger.com/t/100039285796209"
+              href="https://www.messenger.com/t/256559060865144"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
@@ -151,7 +164,7 @@ export default function Contact() {
                   type="text"
                   required
                   suppressHydrationWarning
-                  placeholder="e.g. Van (10-Seater)"
+                  placeholder="e.g. Van"
                   className={fieldClass}
                 />
               </div>

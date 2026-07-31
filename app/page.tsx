@@ -6,6 +6,7 @@ import WhyUs from "./components/why-us";
 import Testimonials from "./components/testimonials";
 import Message from "./components/message";
 import PromoBanner from "./components/promo-banner";
+import Tours from "./components/tours";
 import Faq from "./components/faq";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
@@ -23,6 +24,7 @@ export default function Home() {
         <Testimonials />
         <Message />
         <PromoBanner />
+        <Tours />
         <Faq />
         <Contact />
       </main>

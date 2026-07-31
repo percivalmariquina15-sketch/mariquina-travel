@@ -3,7 +3,7 @@ import { MessengerIcon } from "./icons";
 export default function MessengerButton() {
   return (
     <a
-      href="https://www.messenger.com/t/100039285796209"
+      href="https://www.messenger.com/t/256559060865144"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on Messenger"

@@ -54,7 +54,7 @@ export default function HowItWorks() {
 
         <div className="mt-12 flex justify-center">
           <a
-            href="https://www.messenger.com/t/100039285796209"
+            href="https://www.messenger.com/t/256559060865144"
             target="_blank"
             rel="noopener noreferrer"
             className="flex h-11 items-center gap-2 rounded-lg bg-primary px-6 text-sm font-bold text-white transition-colors hover:bg-primary-hover"

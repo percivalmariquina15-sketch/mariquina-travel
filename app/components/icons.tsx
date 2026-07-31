@@ -157,6 +157,14 @@ export function HeartIcon({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
+export function WalletIcon({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M21 7.28V6a2 2 0 0 0-2-2H5a3 3 0 0 0-3 3v11a3 3 0 0 0 3 3h14a2 2 0 0 0 2-2v-1.28A2 2 0 0 0 23 17v-8a2 2 0 0 0-2-1.72ZM19 7H5a1 1 0 0 1 0-2h14v2Zm1 10h-6a2 2 0 0 1 0-4h6v4Zm-6-2h3v2h-3a1 1 0 1 1 0-2Z" />
+    </svg>
+  );
+}
+
 export function ChevronDownIcon({ className = "h-4 w-4" }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">

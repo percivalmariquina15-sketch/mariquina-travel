@@ -12,13 +12,12 @@ const columns = [
     title: "Vehicles",
     links: [
       "Sedans",
-      "SUVs & MPVs",
-      "Vans (6-Seater)",
-      "Vans (10-Seater)",
+      "7-Seaters",
+      "Vans (12–19 Seaters)",
       "Airport Transfers",
       "Monthly Rentals",
     ],
-    hrefs: ["#vehicles", "#vehicles", "#vehicles", "#vehicles", "#contact", "#contact"],
+    hrefs: ["#vehicles", "#vehicles", "#vehicles", "#contact", "#contact"],
   },
   {
     title: "Services",
@@ -48,6 +47,8 @@ const columns = [
       "WhatsApp — 0962 840 8580",
       "Tour Pilot — 0991 748 4076",
       "mariquinatravel@gmail.com",
+      "GCash — Percival Mariquina 0962 840 8580",
+      "GCash — Angelica Tongol 0992 672 3651",
       "Open daily — 24/7 inquiries",
     ],
     hrefs: [
@@ -55,6 +56,8 @@ const columns = [
       "https://wa.me/639628408580",
       "tel:+639917484076",
       "mailto:mariquinatravel@gmail.com",
+      "tel:+639628408580",
+      "tel:+639926723651",
       "#contact",
     ],
   },
@@ -83,7 +86,7 @@ export default function Footer() {
           </p>
           <div className="mt-5 flex gap-3">
             <a
-              href="https://www.messenger.com/t/100039285796209"
+              href="https://www.messenger.com/t/256559060865144"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Message us on Facebook Messenger"

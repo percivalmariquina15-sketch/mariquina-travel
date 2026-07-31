@@ -60,14 +60,25 @@ export default function Header() {
         !headerRef.current.contains(event.target as Node)
       ) {
         setMenuOpen(false);
+        const swallowClick = (clickEvent: MouseEvent) => {
+          clickEvent.preventDefault();
+          clickEvent.stopPropagation();
+        };
+        document.addEventListener("click", swallowClick, {
+          capture: true,
+          once: true,
+        });
       }
     };
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setMenuOpen(false);
     };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     document.addEventListener("pointerdown", handlePointerDown);
     document.addEventListener("keydown", handleKeyDown);
     return () => {
+      document.body.style.overflow = previousOverflow;
       document.removeEventListener("pointerdown", handlePointerDown);
       document.removeEventListener("keydown", handleKeyDown);
     };
@@ -170,7 +181,7 @@ export default function Header() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
-            className={`flex h-10 w-10 items-center justify-center rounded-lg transition-colors xl:hidden ${
+            className={`flex h-11 w-11 items-center justify-center rounded-lg transition-colors xl:hidden ${
               scrolled
                 ? "text-ink hover:bg-fog"
                 : "text-white hover:bg-white/10"
@@ -205,6 +216,7 @@ export default function Header() {
             <div className="mt-2 border-t border-border pt-4">
               <a
                 href="tel:+639926723651"
+                onClick={() => setMenuOpen(false)}
                 className="flex h-10 items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-primary"
               >
                 <PhoneIcon className="h-4 w-4" />
@@ -214,6 +226,7 @@ export default function Header() {
                 href="https://www.messenger.com/t/100039285796209"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
                 className="mt-3 flex h-10 items-center justify-center gap-2 rounded-lg bg-primary text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
               >
                 <MessengerIcon className="h-4 w-4" />

@@ -16,7 +16,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/75 to-navy/40" />
       </div>
 
-      <div className="relative mx-auto flex min-h-svh max-w-[1200px] items-center justify-center px-4 pt-36 pb-20 sm:px-6">
+      <div className="relative mx-auto flex min-h-svh max-w-[1200px] items-center justify-center px-4 pt-28 pb-20 sm:px-6">
         <div className="flex max-w-[640px] flex-col items-center text-center">
           <h1 className="text-4xl font-extrabold leading-[1.2] tracking-tight text-white sm:text-[52px] lg:text-[56px]">
             Your Journey,{" "}

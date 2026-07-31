@@ -46,7 +46,7 @@ const columns = [
       "Ms. Angie — 0992 672 3651",
       "WhatsApp — 0962 840 8580",
       "Tour Pilot — 0991 748 4076",
-      "mariquinatravel@gmail.com",
+      "percivalmariquina15@gmail.com",
       "GCash — Percival Mariquina 0962 840 8580",
       "GCash — Angelica Tongol 0992 672 3651",
       "Open daily — 24/7 inquiries",
@@ -55,7 +55,7 @@ const columns = [
       "tel:+639926723651",
       "https://wa.me/639628408580",
       "tel:+639917484076",
-      "mailto:mariquinatravel@gmail.com",
+      "mailto:percivalmariquina15@gmail.com",
       "tel:+639628408580",
       "tel:+639926723651",
       "#contact",
@@ -104,7 +104,7 @@ export default function Footer() {
               <WhatsAppIcon className="h-4 w-4" />
             </a>
             <a
-              href="mailto:mariquinatravel@gmail.com"
+              href="mailto:percivalmariquina15@gmail.com"
               aria-label="Email us"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-primary"
             >

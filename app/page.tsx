@@ -7,6 +7,7 @@ import Testimonials from "./components/testimonials";
 import Message from "./components/message";
 import PromoBanner from "./components/promo-banner";
 import Tours from "./components/tours";
+import TravelPhotos from "./components/travel-photos";
 import Faq from "./components/faq";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
@@ -25,6 +26,7 @@ export default function Home() {
         <Message />
         <PromoBanner />
         <Tours />
+        <TravelPhotos />
         <Faq />
         <Contact />
       </main>

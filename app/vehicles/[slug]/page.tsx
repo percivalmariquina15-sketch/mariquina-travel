@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeftIcon } from "../../components/icons";
-import VehicleGallery from "../../components/vehicle-gallery";
+import PhotoGallery from "../../components/photo-gallery";
 import { vehicles } from "../../lib/vehicles";
 
 export function generateStaticParams() {
@@ -71,7 +71,7 @@ export default async function VehiclePage({
           {vehicle.name}
         </h1>
 
-        <VehicleGallery images={vehicle.images} name={vehicle.name} />
+        <PhotoGallery images={vehicle.images} name={vehicle.name} />
       </main>
     </div>
   );

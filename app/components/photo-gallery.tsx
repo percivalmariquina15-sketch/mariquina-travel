@@ -9,7 +9,7 @@ type Props = {
   name: string;
 };
 
-export default function VehicleGallery({ images, name }: Props) {
+export default function PhotoGallery({ images, name }: Props) {
   const [index, setIndex] = useState<number | null>(null);
 
   const close = () => setIndex(null);

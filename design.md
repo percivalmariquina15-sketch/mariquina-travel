@@ -20,10 +20,11 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 6. Testimonials Carousel Section
 7. Message Band (statement, text-only on navy)
 8. Long-Term Rental / Promo Call-out Banner
-9. FAQ Section (accordion)
-10. Quick Contact / CTA Bar + Inquiry Form
-11. Main Footer
-12. Copyright Sub-Footer
+9. Travel Photos Section (photo gallery — auto-listed from `public/images/journal/`)
+10. FAQ Section (accordion)
+11. Quick Contact / CTA Bar + Inquiry Form
+12. Main Footer
+13. Copyright Sub-Footer
 
 ---
 
@@ -140,7 +141,7 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 - Top bar: sticky, 64px tall, white bg, `1px solid #E2E8F0` bottom border. Brand only (logo 28px + "Mariquina" ink / "Travel" amber, 20px Bold + tagline 10px uppercase `#64748B`) linking `/`.
 - Body: light bg `#F8FAFC`, container `max-w-[1200px]`, padding `py-10 sm:py-14`. Above the title: "← Back to Vehicles" link (14px Semi-bold `#0E52D2`, hover `#0345BA`, chevron-left icon) → `/#vehicles`. Title: vehicle name 24px → 28px Bold `#1E293B` (photos only — no price/info).
 - Photo grid: 1 → 2 (sm) → 3 (lg) columns, gap 20px. Each photo in a white card (radius 12px, border `1px solid #E2E8F0`, hover border `#0E52D2`), `aspect-[4/3]` `object-cover`, full column width. Each card is a button opening the **lightbox**.
-- Lightbox (`VehicleGallery` client component): fixed full-viewport overlay `z-60`, `#0B192E` at 95% opacity. Photo centered `object-contain`, max 70vh tall, max-w-4xl. Controls: close (top-right), prev/next (left/right center) — 40–44px circles, `1px solid rgba(255,255,255,0.30)` border, `rgba(255,255,255,0.10)` bg, hover `0.20` (same language as the hero scroll-hint badge); photo counter bottom-center ("3 / 14", 14px Semi-bold white/80). Clicking the backdrop closes; keyboard Esc closes, ArrowLeft/ArrowRight navigate; body scroll locks while open.
+- Lightbox (`PhotoGallery` shared client component): fixed full-viewport overlay `z-60`, `#0B192E` at 95% opacity. Photo centered `object-contain`, max 70vh tall, max-w-4xl. Controls: close (top-right), prev/next (left/right center) — 40–44px circles, `1px solid rgba(255,255,255,0.30)` border, `rgba(255,255,255,0.10)` bg, hover `0.20` (same language as the hero scroll-hint badge); photo counter bottom-center ("3 / 14", 14px Semi-bold white/80). Clicking the backdrop closes; keyboard Esc closes, ArrowLeft/ArrowRight navigate; body scroll locks while open.
 - Home page cards: each card has a **Book Now** button (solid primary → `#inquiry-form`) and a **View Photos** button (outline → `/vehicles/{slug}`); the card itself is not a link.
 
 ### D2. Joiners & Group Exclusive Tours Section
@@ -151,6 +152,12 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 - Bottom-center CTA: "Message Us to Book" solid blue button (44px, radius 8px, 14px Bold white, Messenger icon) → Messenger (same as How It Works).
 - Photos: free-license stock (Unsplash/Pexels) in `public/images/destinations/`.
 
+### Q. Travel Photos Section
+- Section: `id="travel-photos"`, content-height, padding `py-16 sm:py-20`, **white bg** (sits between the Tours band `#F8FAFC` and FAQ band `#F8FAFC` — restores the background-rotation rule so no two adjacent sections share a background).
+- Header: "Travel Photos" 24px Bold centered + subtitle 14px muted centered: "Snapshots from our trips across the Philippines."
+- Content: photo-only gallery grid (thumbs `aspect-[4/3]` object-cover, `sm:grid-cols-2 lg:grid-cols-3`, gap 20px, rounded-xl, border `1px solid #E2E8F0`, hover border-primary) → click opens the shared `PhotoGallery` lightbox (same spec as vehicle pages above, counter "1 / N").
+- Photos: **auto-listed from `public/images/journal/` at build time** (server component `readdir`, allowed `.jpg .jpeg .png .webp .avif`, natural filename sort) — adding a photo to the folder and rebuilding makes it appear; no code change needed. Empty/missing folder → the section renders nothing.
+
 ---
 
 ## 3.5 Responsive & Mobile Behavior
@@ -158,7 +165,7 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 - **Breakpoints (Tailwind default):** `sm` 640px · `md` 768px · `lg` 1024px · `xl` 1280px. Build mobile-first: base styles = phone, then layer up.
 - **Nav:** desktop links + phone show at `xl`; hamburger panel below `xl` (link rows 44px tall). Phone number hidden below `md` (available in the mobile panel); "Message Us" button hidden below `sm`.
 - **Hero:** `min-h-svh` (not `min-h-screen`) so the full-height section uses the small viewport height — no URL-bar jump on mobile browsers. Headline 36px mobile → 52px `sm` → 56px `lg`, wraps naturally. Scroll-hint badge sits `bottom-24px`; content padded `pt-28 pb-20`.
-- **Grids:** vehicles `1 → 2 (sm) → 3 (md)`; how-it-works `1 → 3 (sm)`; why-us stacks to 1 col below `lg` (image below text); promo banner 1 col below `lg` (image hidden, gradient panel only); footer `1 → 2 (sm) → 5 (lg)`.
+- **Grids:** vehicles `1 → 2 (sm) → 3 (md)`; how-it-works `1 → 3 (sm)`; why-us stacks to 1 col below `lg` (image below text); promo banner 1 col below `lg` (image hidden, gradient panel only); travel photos `1 → 2 (sm) → 3 (lg)`; footer `1 → 2 (sm) → 5 (lg)`.
 - **Testimonials:** below `md`, arrows hide and cards are full-width with native snap scroll (`snap-x snap-mandatory`, swipeable).
 - **Forms:** inputs `text-base` (16px) below `sm` — prevents iOS auto-zoom; date row stacks to 1 col below `sm`; submit button full-width.
 - **Tap targets:** interactive elements ≥40px tall minimum (buttons `h-10`+; nav rows 44px; icon buttons 40×40).

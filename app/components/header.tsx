@@ -100,7 +100,9 @@ export default function Header() {
     <header
       ref={headerRef}
       className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled ? "border-border bg-white" : "border-transparent bg-transparent"
+        menuOpen || scrolled
+          ? "border-border bg-white"
+          : "border-transparent bg-transparent"
       }`}
     >
       <div className="mx-auto flex h-18 max-w-[1200px] items-center justify-between gap-6 px-4 sm:px-6">
@@ -116,7 +118,7 @@ export default function Header() {
             <span className="text-xl font-bold leading-none tracking-tight">
               <span
                 className={`transition-colors ${
-                  scrolled ? "text-ink" : "text-white"
+                  menuOpen || scrolled ? "text-ink" : "text-white"
                 }`}
               >
                 Mariquina
@@ -125,7 +127,7 @@ export default function Header() {
             </span>
             <span
               className={`mt-1 text-[10px] font-medium uppercase tracking-[0.18em] transition-colors ${
-                scrolled ? "text-muted" : "text-white/70"
+                menuOpen || scrolled ? "text-muted" : "text-white/70"
               }`}
             >
               Van and Car Rental
@@ -158,7 +160,7 @@ export default function Header() {
           <a
             href="tel:+639926723651"
             className={`hidden items-center gap-2 text-sm font-medium transition-colors md:flex ${
-              scrolled
+              menuOpen || scrolled
                 ? "text-ink hover:text-primary"
                 : "text-white/85 hover:text-white"
             }`}
@@ -182,7 +184,7 @@ export default function Header() {
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
             className={`flex h-11 w-11 items-center justify-center rounded-lg transition-colors xl:hidden ${
-              scrolled
+              menuOpen || scrolled
                 ? "text-ink hover:bg-fog"
                 : "text-white hover:bg-white/10"
             }`}
@@ -197,7 +199,7 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="border-t border-border bg-white xl:hidden">
+        <div className="border-t border-border bg-white text-ink xl:hidden">
           <nav className="mx-auto flex max-w-[1200px] flex-col px-4 py-4 sm:px-6">
             {navLinks.map((link) => (
               <a

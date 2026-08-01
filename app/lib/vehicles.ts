@@ -66,7 +66,7 @@ export const vehicles: Vehicle[] = [
   {
     slug: "van-1",
     name: "Van #1",
-    seats: "12–19 seats",
+    seats: "12–15 seats",
     rate: "₱5,000–₱7,000/day",
     images: vanImages,
     page: true,
@@ -74,7 +74,7 @@ export const vehicles: Vehicle[] = [
   {
     slug: "van-2",
     name: "Van #2",
-    seats: "12–19 seats",
+    seats: "19 seats",
     rate: "₱5,000–₱7,000/day",
     images: van2Images,
     page: true,
@@ -82,7 +82,7 @@ export const vehicles: Vehicle[] = [
   {
     slug: "van-3",
     name: "Van #3",
-    seats: "12–19 seats",
+    seats: "12–15 seats",
     rate: "₱5,000–₱7,000/day",
     images: van3Images,
     page: true,
@@ -90,7 +90,7 @@ export const vehicles: Vehicle[] = [
   {
     slug: "van-4",
     name: "Van #4",
-    seats: "12–19 seats",
+    seats: "12–15 seats",
     rate: "₱5,000–₱7,000/day",
     images: van4Images,
     page: true,
@@ -98,7 +98,7 @@ export const vehicles: Vehicle[] = [
   {
     slug: "van-5",
     name: "Van #5",
-    seats: "12–19 seats",
+    seats: "12–15 seats",
     rate: "₱5,000–₱7,000/day",
     images: van5Images,
     page: true,

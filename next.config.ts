@@ -18,6 +18,24 @@ const nextConfig: NextConfig = {
         { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
       ],
     },
+    {
+      source: "/",
+      headers: [
+        {
+          key: "Cache-Control",
+          value: "public, s-maxage=86400, stale-while-revalidate=31536000",
+        },
+      ],
+    },
+    {
+      source: "/vehicles/:slug",
+      headers: [
+        {
+          key: "Cache-Control",
+          value: "public, s-maxage=86400, stale-while-revalidate=31536000",
+        },
+      ],
+    },
   ],
 };
 

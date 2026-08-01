@@ -181,22 +181,42 @@ export default function Contact() {
                 />
               </div>
 
-              <div>
-                <label
-                  htmlFor="email"
-                  className="mb-1.5 block text-sm font-semibold text-ink"
-                >
-                  Email or Contact Number
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="text"
-                  required
-                  suppressHydrationWarning
-                  placeholder="you@email.com or your contact number"
-                  className={fieldClass}
-                />
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="mb-1.5 block text-sm font-semibold text-ink"
+                  >
+                    Contact Number
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    suppressHydrationWarning
+                    placeholder="0917 123 4567"
+                    className={fieldClass}
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="mb-1.5 block text-sm font-semibold text-ink"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    suppressHydrationWarning
+                    placeholder="you@email.com"
+                    className={fieldClass}
+                  />
+                </div>
               </div>
 
               <div>
@@ -223,7 +243,7 @@ export default function Contact() {
                     htmlFor="pickup-date"
                     className="mb-1.5 block text-sm font-semibold text-ink"
                   >
-                    Pickup Date
+                    Pick-up Date
                   </label>
                   <input
                     id="pickup-date"
@@ -265,6 +285,42 @@ export default function Contact() {
                     className={fieldClass}
                   />
                 </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="pickup-address"
+                  className="mb-1.5 block text-sm font-semibold text-ink"
+                >
+                  Pick-up Complete Address
+                </label>
+                <input
+                  id="pickup-address"
+                  name="pickup-address"
+                  type="text"
+                  required
+                  suppressHydrationWarning
+                  placeholder="House no. / street, barangay, city, province"
+                  className={fieldClass}
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="destination-address"
+                  className="mb-1.5 block text-sm font-semibold text-ink"
+                >
+                  Complete Address of Destination
+                </label>
+                <input
+                  id="destination-address"
+                  name="destination-address"
+                  type="text"
+                  required
+                  suppressHydrationWarning
+                  placeholder="House no. / street, barangay, city, province"
+                  className={fieldClass}
+                />
               </div>
 
               <div>

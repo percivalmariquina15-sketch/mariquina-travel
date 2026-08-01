@@ -7,6 +7,8 @@ export type Vehicle = {
   page: boolean;
 };
 
+// Adding photos to a van: drop files into public/images/vehicles/van-N/
+// (e.g. 1.jpg, 2.jpg — 1.jpg is the card cover) then list them below.
 const vanImages = [
   "/images/vehicles/van.jpg",
   "/images/vehicles/van2.jpg",
@@ -18,9 +20,26 @@ const vanImages = [
   "/images/vehicles/van8.jpg",
   "/images/vehicles/van9.jpg",
   "/images/vehicles/van10.jpg",
-  "/images/vehicles/van11.jpg",
-  "/images/vehicles/van12.jpg",
-  "/images/vehicles/van14.jpg",
+];
+
+const van2Images = [
+  "/images/vehicles/van-2/1.jpg",
+  "/images/vehicles/van-2/2.jpg",
+  "/images/vehicles/van-2/3.jpg",
+];
+
+const van3Images = [
+  "/images/vehicles/van-3/1.jpg",
+  "/images/vehicles/van-3/2.jpg",
+  "/images/vehicles/van-3/3.jpg",
+  "/images/vehicles/van-3/4.jpg",
+];
+
+const van4Images = [
+  "/images/vehicles/van-4/1.jpg",
+  "/images/vehicles/van-4/2.jpg",
+  "/images/vehicles/van-4/3.jpg",
+  "/images/vehicles/van-4/4.jpg",
 ];
 
 const sevenSeaterImages = [
@@ -38,11 +57,35 @@ const sedanImages = [
 
 export const vehicles: Vehicle[] = [
   {
-    slug: "van",
-    name: "Van",
+    slug: "van-1",
+    name: "Van #1",
     seats: "12–19 seats",
     rate: "₱5,000–₱7,000/day",
     images: vanImages,
+    page: true,
+  },
+  {
+    slug: "van-2",
+    name: "Van #2",
+    seats: "12–19 seats",
+    rate: "₱5,000–₱7,000/day",
+    images: van2Images,
+    page: true,
+  },
+  {
+    slug: "van-3",
+    name: "Van #3",
+    seats: "12–19 seats",
+    rate: "₱5,000–₱7,000/day",
+    images: van3Images,
+    page: true,
+  },
+  {
+    slug: "van-4",
+    name: "Van #4",
+    seats: "12–19 seats",
+    rate: "₱5,000–₱7,000/day",
+    images: van4Images,
     page: true,
   },
   {

@@ -17,6 +17,11 @@ const destinations = [
     tagline: "Mayon Volcano & Beach Escapes",
     image: "/images/destinations/bicol.jpg",
   },
+  {
+    name: "Vigan",
+    tagline: "Heritage City & Calle Crisologo",
+    image: "/images/destinations/vigan.jpg",
+  },
 ];
 
 export default function Tours() {

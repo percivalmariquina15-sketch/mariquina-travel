@@ -8,8 +8,7 @@ import Message from "./components/message";
 import PromoBanner from "./components/promo-banner";
 import Tours from "./components/tours";
 import TravelPhotos from "./components/travel-photos";
-import Faq from "./components/faq";
-import Contact from "./components/contact";
+import { LazyFaq, LazyContact } from "./components/lazy-sections";
 import Footer from "./components/footer";
 import MessengerButton from "./components/messenger-button";
 
@@ -27,8 +26,8 @@ export default function Home() {
         <PromoBanner />
         <Tours />
         <TravelPhotos />
-        <Faq />
-        <Contact />
+        <LazyFaq />
+        <LazyContact />
       </main>
       <Footer />
       <MessengerButton />

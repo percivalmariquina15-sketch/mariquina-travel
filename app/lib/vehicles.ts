@@ -42,6 +42,13 @@ const van4Images = [
   "/images/vehicles/van-4/4.jpg",
 ];
 
+const van5Images = [
+  "/images/vehicles/van-5/1.jpg",
+  "/images/vehicles/van-5/2.jpg",
+  "/images/vehicles/van-5/3.jpg",
+  "/images/vehicles/van-5/4.jpg",
+];
+
 const sevenSeaterImages = [
   "/images/vehicles/7-seater.jpg",
   "/images/vehicles/7-seater2.jpg",
@@ -86,6 +93,14 @@ export const vehicles: Vehicle[] = [
     seats: "12–19 seats",
     rate: "₱5,000–₱7,000/day",
     images: van4Images,
+    page: true,
+  },
+  {
+    slug: "van-5",
+    name: "Van #5",
+    seats: "12–19 seats",
+    rate: "₱5,000–₱7,000/day",
+    images: van5Images,
     page: true,
   },
   {

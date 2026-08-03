@@ -23,9 +23,10 @@ export default function Hero() {
             <span className="text-amber">Our Wheels</span>
           </h1>
           <p className="mt-5 text-[15px] leading-relaxed text-white/80">
-            Explore our well-maintained cars and vans from trusted local
-            operators. Honest rates, easy financing-free monthly options, and a
-            booking process as simple as sending a message.
+            Explore our well-maintained cars and vans for rent in Cavite — with
+            or without driver. Honest rates, easy monthly options, and a
+            booking process as simple as sending a message. Ready for Manila,
+            Tagaytay, Baguio, La Union, and beyond.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

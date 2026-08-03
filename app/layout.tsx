@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Figtree } from "next/font/google";
 import "./globals.css";
 
+const siteUrl = "https://mariquinatravel.com";
+
 export const viewport: Viewport = {
   themeColor: "#0b192e",
 };
@@ -17,17 +19,20 @@ const body = Figtree({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mariquinatravel.com/"),
-  title: "Mariquina Travel | Car & Van Rental",
+  metadataBase: new URL(siteUrl),
+  title: "Van & Car Rental in Cavite | Mariquina Travel",
   description:
-    "Affordable car and van rental with or without driver. Book easily via Facebook Messenger or call us directly.",
+    "Affordable car & van rental in Cavite with or without driver. Self-drive sedans, 7-seaters, and vans for Manila, Baguio, Tagaytay, La Union, and group tours. Book via Facebook Messenger or call us.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
-    url: "https://mariquinatravel.com/",
+    url: siteUrl,
     siteName: "Mariquina Travel",
-    title: "Mariquina Travel | Car & Van Rental",
+    title: "Van & Car Rental in Cavite | Mariquina Travel",
     description:
-      "Affordable car and van rental with or without driver. Book easily via Facebook Messenger or call us directly.",
+      "Affordable car & van rental in Cavite with or without driver. Self-drive sedans, 7-seaters, and vans for Manila, Baguio, Tagaytay, La Union, and group tours. Book via Facebook Messenger or call us.",
     images: [
       {
         url: "/images/og-image.jpg",
@@ -39,11 +44,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mariquina Travel | Car & Van Rental",
+    title: "Van & Car Rental in Cavite | Mariquina Travel",
     description:
-      "Affordable car and van rental with or without driver. Book easily via Facebook Messenger or call us directly.",
+      "Affordable car & van rental in Cavite with or without driver. Self-drive sedans, 7-seaters, and vans for Manila, Baguio, Tagaytay, La Union, and group tours.",
     images: ["/images/og-image.jpg"],
   },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION
+    ? {
+        other: {
+          "google-site-verification": process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+        },
+      }
+    : {}),
 };
 
 export default function RootLayout({
@@ -53,7 +65,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-PH"
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>

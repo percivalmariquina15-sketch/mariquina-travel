@@ -6,6 +6,14 @@ import {
   PhoneIcon,
   WhatsAppIcon,
 } from "./icons";
+import { destinations } from "../lib/destinations";
+
+const destinationLinks = destinations
+  .map((d) => d.name)
+  .map((name, i) => ({
+    name,
+    href: `/destinations/${destinations[i].slug}`,
+  }));
 
 const columns = [
   {
@@ -29,6 +37,11 @@ const columns = [
       "Long-Term Rentals",
     ],
     hrefs: ["#why-us", "#why-us", "#contact", "#contact", "#contact"],
+  },
+  {
+    title: "Destinations",
+    links: destinationLinks.map((d) => d.name),
+    hrefs: destinationLinks.map((d) => d.href),
   },
   {
     title: "Help",
@@ -66,7 +79,7 @@ const columns = [
 export default function Footer() {
   return (
     <footer className="bg-navy text-white">
-      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-5">
+      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-6">
         <div>
           <a href="#home" className="flex items-center gap-2.5">
             <Image

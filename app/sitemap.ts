@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { vehicles } from "./lib/vehicles";
+import { destinations } from "./lib/destinations";
 
 export const BASE_URL = "https://www.mariquinatravel.com";
 
@@ -13,6 +14,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     }));
 
+  const destinationUrls: MetadataRoute.Sitemap = destinations.map(
+    (destination) => ({
+      url: `${BASE_URL}/destinations/${destination.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    })
+  );
+
   return [
     {
       url: BASE_URL,
@@ -20,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
+    ...destinationUrls,
     ...vehicleUrls,
   ];
 }

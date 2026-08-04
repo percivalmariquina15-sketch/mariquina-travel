@@ -53,7 +53,7 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 - **Scroll states:** at top (hero visible) the bar is fully transparent (no background, no border) with white/amber text so it reads over the navy hero scrim; it stays transparent for as long as the hero section intersects the viewport (IntersectionObserver on `#home`), then transitions to the solid white + border style once the hero scrolls out of view. Smooth `transition-colors`. **While the mobile menu is open the bar is always solid white + border** (dark ink text/icons) regardless of scroll state — the panel below it is white too, so the bar and panel read as one solid block and the hamburger→X icon stays visible over light content.
 - Transparent-state colors: "Mariquina" white, "Travel" amber `#F59E0B` (constant — "Travel" stays amber in both scroll states); logo icon container `rgba(255,255,255,0.10)` bg with white icon; nav links `white/85` (hover pure white); active link amber `#F59E0B` with amber underline in both scroll states; phone `white/85`. "Message Us" button unchanged (solid blue).
 - Logo (left): 28×28 PNG logo mark (`/images/logo/logo.png` — 1218×1291px source, transparent background, `object-contain` to preserve aspect; full-res source is served as-is and Next/Image generates 1×/2×/3× srcsets so it stays crisp on retina). Brand text: **Mariquina** (`#1E293B`, Bold 700) **Travel** (`#0E52D2`, Bold 700), 20px. Below the brand: small tagline "VAN AND CAR RENTAL" — 10px Medium, uppercase, letter-spacing 0.18em, `#64748B` (white/70 over the hero).
-- Nav links (center-right): Home, Vehicles, Why Us, Contact — 14px Semi-bold 600, `#1E293B` (white/85 over the hero). Active link follows scroll position (scroll-spy): the nav item of the section currently in view (IntersectionObserver band just below the sticky bar, `rootMargin -20% 0px -55% 0px`) is highlighted amber `#F59E0B` with a 2px amber underline bar — in both scroll states. 32px gap between links.
+- Nav links (center-right): Home, Vehicles, Destinations, Why Us, Contact — 14px Semi-bold 600, `#1E293B` (white/85 over the hero). Active link follows scroll position (scroll-spy): the nav item of the section currently in view (IntersectionObserver band just below the sticky bar, `rootMargin -20% 0px -55% 0px`) is highlighted amber `#F59E0B` with a 2px amber underline bar — in both scroll states. 32px gap between links.
 - Actions (right): phone number (14px, Medium, `#1E293B`), "Message Us" button: `#0E52D2` bg, white text, 14px Semi-bold, height 40px, padding 0 20px, radius 8px.
 - **Mobile menu (below `xl`):** hamburger button (44×44, rounded 8px, ink/white per scroll state — dark ink whenever the panel is open, `aria-expanded`) toggles a white panel below the bar (`border-t #E2E8F0`, explicit dark `#1E293B` text on the panel itself so links can never inherit a light color): stacked links (44px rows, 14px Semi-bold, active = amber, follows scroll-spy), divider, phone link, full-width "Message Us" button. Panel closes on link click, outside click, and Escape. Outside taps are **swallowed** (one-time capture-phase `click` with `preventDefault`/`stopPropagation`) so the dismissing tap never activates content underneath; **body scroll is locked** (`overflow: hidden`, restored on close) while the panel is open. Link taps close the panel first, then smooth-scroll to the target (deferred ~60ms so the panel height is removed first — prevents landing off-target). Phone/Message Us panel links close the panel too. Desktop nav hides below `xl`.
 - **Anchor behavior:** `html { scroll-behavior: smooth; scroll-padding-top: 73px }` — all in-page links (nav, footer, CTAs) land below the sticky bar; the hero `#home` clamps to page top 0.
@@ -62,7 +62,7 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 - Height: 100vh (min), vertically centered content. The section uses `-mt-[73px]` (negative top margin equal to the header's full height: 72px bar + 1px bottom border) so the image extends up behind the sticky transparent navbar without leaving a white gap; the navbar (z-50) renders on top of the image's top 73px.
 - Background: full-bleed vehicle photo (`/images/hero-van-2.jpg` — white van parked near mountains, road-trip scene) with a dark navy gradient scrim overlay (`#0B192E` at 95% → 75% → 40% opacity, left to right) for readability.
 - Content column: centered both ways (container `justify-center`, column `flex flex-col items-center text-center`, max-width 640px), all text centered:
-  - Headline: "Your Journey, Our Wheels" — 56px (52px on tablet, 36px mobile), Bold 800, line-height 1.2, White; accent word (Our Wheels) Amber `#F59E0B`. Wraps naturally (no `whitespace-nowrap`) — "Our Wheels" falls to its own centered amber line at `lg` and below.
+  - Headline: "Van & Car Rental in **Cavite** — Manila, Baguio & Tagaytay" — 50px (44px on tablet, 36px mobile), Bold 800, line-height 1.15, White; the route city "Cavite" Amber `#F59E0B`. Wraps naturally (no `whitespace-nowrap`) across two–three short lines, keeping the lead keyword "Van & Car Rental in Cavite" intact for search relevance (matches the site title tag).
   - Body: 15px Regular 400, line-height 1.6, White 80%.
   - CTA row: Button 1 "Browse Vehicles" — solid blue `#0E52D2`, height 44px, padding 0 24px, radius 8px, 14px Bold white. Button 2 "Message Us" — translucent white `rgba(255,255,255,0.10)` with `1px solid rgba(255,255,255,0.40)` border, white text, height 44px, padding 0 24px, radius 8px. Row centered.
   - Scroll hint: bottom-center circular badge (44×44, `1px solid rgba(255,255,255,0.30)` border, `rgba(255,255,255,0.10)` bg, white ChevronDown icon) at `bottom-24px`, animating `scroll-hint` (translateY 0→9px + opacity fade, 1.8s infinite), linking to `#vehicles`.
@@ -120,12 +120,13 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 - Below the band: "Book Your Vehicle" **Formspree form** (full name, contact number + email address — 2-col row, vehicle needed, pick-up date + return date — 2-col row, pick-up complete address, complete address of destination, optional message) in a white card matching the same border/radius language. Submit posts via `fetch` to `https://formspree.io/f/mqeroolq` (hidden `_subject` "New booking request — Mariquina Travel"); the visitor stays on the page — no email app involved. States: **sending** (button disabled, label "Sending…"), **error** (inline amber `#F59E0B` message + Messenger fallback link), **success** (card swaps to centered panel: `CheckIcon` in a 48px `#EFF6FF` circle with `#0E52D2` icon — same pattern as How It Works — "Booking Request Sent!" 18px Bold `#1E293B`, body 14px `#64748B` "We'll reply to confirm your booking via Messenger or email.", and a "Send another request" text link in `#0E52D2` that resets the form). Inputs use `text-base` (16px) on mobile → `text-sm` (14px) on `sm+` to prevent iOS Safari auto-zoom on focus.
 
 ### L. Main Footer
-- Background `#0B192E`, white/light gray text. 5-column grid:
+- Background `#0B192E`, white/light gray text. 6-column grid:
   - Col 1 (Brand): logo, tagline, social icon row (Messenger, WhatsApp, Email).
   - Col 2 (Vehicles): Sedans, 7-Seaters, Vans (12–19 Seaters), Airport Transfers, Monthly Rentals.
-  - Col 3 (Services): Self-Drive, With Driver, Group Tours, Corporate Bookings.
-  - Col 4 (Help): How It Works, Frequently Asked Questions, Terms of Service, Privacy Policy.
-  - Col 5 (Contact): Ms. Angie `0992 672 3651`, WhatsApp `0962 840 8580`, Tour Pilot `0991 748 4076`, email, GCash — Percival Mariquina `0962 840 8580`, GCash — Angelica Tongol `0992 672 3651`, operating hours.
+  - Col 3 (Services): Self-Drive, With Driver, Group Tours, Corporate Bookings, Long-Term Rentals.
+  - Col 4 (Destinations): the 6 destination pages (`/destinations/tagaytay` … `/destinations/vigan`) — auto-generated from `app/lib/destinations.ts`.
+  - Col 5 (Help): How It Works, Frequently Asked Questions, Terms of Service, Privacy Policy.
+  - Col 6 (Contact): Ms. Angie `0992 672 3651`, WhatsApp `0962 840 8580`, Tour Pilot `0991 748 4076`, email, GCash — Percival Mariquina `0962 840 8580`, GCash — Angelica Tongol `0992 672 3651`, operating hours.
 - Typography: category headlines 14px Bold white; links 13px Regular `#94A3B8`, vertical spacing 10px.
 
 ### M. Copyright Sub-Footer
@@ -144,13 +145,13 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 - Lightbox (`PhotoGallery` shared client component): fixed full-viewport overlay `z-60`, `#0B192E` at 95% opacity. Photo centered `object-contain`, max 70vh tall, max-w-4xl. Controls: close (top-right), prev/next (left/right center) — 40–44px circles, `1px solid rgba(255,255,255,0.30)` border, `rgba(255,255,255,0.10)` bg, hover `0.20` (same language as the hero scroll-hint badge); photo counter bottom-center ("3 / 14", 14px Semi-bold white/80). Clicking the backdrop closes; keyboard Esc closes, ArrowLeft/ArrowRight navigate; body scroll locks while open.
 - Home page cards: each card has a **Book Now** button (solid primary → `#inquiry-form`) and a **View Photos** button (outline → `/vehicles/{slug}`); the card itself is not a link.
 
-### D2. Joiners & Group Exclusive Tours Section
-- Section: `id="tours"`, content-height, padding `py-16 sm:py-20`, light bg `#F8FAFC` (sits between the promo banner and FAQ).
-- Header: "Joiners & Group Exclusive Tours" 24px Bold centered + subtitle 14px muted centered, max-width 36rem: "We are looking for joiners and group-exclusive tours — join us to the country's most loved destinations."
-- Grid: 4 destination cards (`sm:grid-cols-2 md:grid-cols-3`, gap 20px), same card language as vehicles: white, radius 12px, border `1px solid #E2E8F0`.
-- Card structure: photo top (`aspect-[4/3]`, object-fit cover); destination name 18px Bold `#1E293B`; tagline 14px Regular `#64748B`. Destinations: **Baguio** ("City of Pines", `baguio.jpg`), **Ilocos Norte** ("Windmills & Heritage", `ilocos-norte.jpg`), **Bicol** ("Mayon Volcano & Beach Escapes", `bicol.jpg`), **Vigan** ("Heritage City & Calle Crisologo", `vigan.jpg`).
+### D2. Destinations Section (home)
+- Section: `id="destinations"` (was `tours`), content-height, padding `py-16 sm:py-20`, light bg `#F8FAFC` (sits between the promo banner and FAQ).
+- Header: "Destinations We Cover" 24px Bold centered + subtitle 14px muted centered, max-width 36rem: "Joiners and group-exclusive tours to the country's most loved destinations — pick a route to see rates and trip info."
+- Grid: 6 destination cards (`sm:grid-cols-2 lg:grid-cols-3`, gap 20px), same card language as vehicles: white, radius 12px, border `1px solid #E2E8F0`, hover border primary.
+- Card structure: photo top (`aspect-[4/3]`, object-fit cover, subtle hover zoom); destination name 18px Bold `#1E293B`; tagline 14px Regular `#64748B`. **Whole card is a link** to `/destinations/{slug}`. Cards are auto-generated from `app/lib/destinations.ts` — add a destination there and it appears here, on the footer, and in the sitemap.
+- Destinations (from `app/lib/destinations.ts`): **Tagaytay**, **Baguio**, **La Union**, **Batangas**, **Zambales**, **Vigan** — each with tagline, cover photo in `public/images/destinations/`, travel time, recommended vehicle, intro copy, and 3 destination FAQs.
 - Bottom-center CTA: "Message Us to Book" solid blue button (44px, radius 8px, 14px Bold white, Messenger icon) → Messenger (same as How It Works).
-- Photos: free-license stock (Unsplash/Pexels) in `public/images/destinations/`.
 
 ### Q. Travel Photos Section
 - Section: `id="travel-photos"`, content-height, padding `py-16 sm:py-20`, **white bg** (sits between the Tours band `#F8FAFC` and FAQ band `#F8FAFC` — restores the background-rotation rule so no two adjacent sections share a background).
@@ -158,14 +159,31 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 - Content: photo-only gallery grid (thumbs `aspect-[4/3]` object-cover, `sm:grid-cols-2 lg:grid-cols-3`, gap 20px, rounded-xl, border `1px solid #E2E8F0`, hover border-primary) → click opens the shared `PhotoGallery` lightbox (same spec as vehicle pages above, counter "1 / N").
 - Photos: **auto-listed from `public/images/journal/` at build time** (server component `readdir`, allowed `.jpg .jpeg .png .webp .avif`, natural filename sort) — adding a photo to the folder and rebuilding makes it appear; no code change needed. Empty/missing folder → the section renders nothing.
 
+### R. Destination Pages (`/destinations/[slug]`)
+- Standalone SEO landing pages (same top-bar-only layout family as the vehicle gallery pages) — one per destination in `app/lib/destinations.ts` (**Tagaytay, Baguio, La Union, Batangas, Zambales, Vigan**), prerendered via `generateStaticParams`; unknown slugs → 404. Purpose: match "van rental {destination}" / "van to {destination} from Cavite" searches. Sitemap priority 0.7, `changeFrequency: weekly`.
+- Top bar: identical to vehicle gallery page (sticky 64px white bar, brand linking `/`).
+- Body: light bg `#F8FAFC`, container `max-w-[1200px]`, padding `py-10 sm:py-14`.
+- Breadcrumb row (13px Medium `#64748B`, `/` separators): Home → Destinations (`/#destinations`) → `{name}` (current, `#1E293B`). Below it a "← Back to Destinations" link (14px Semi-bold primary) → `/#destinations`.
+- H1: "Van & Car Rental to {name}" — 30px mobile → 36px `sm`, Bold, `#1E293B`, route name Amber `#F59E0B` (echoes the hero keyword formula). Below: tagline 16px Medium `#64748B`.
+- Cover photo: `aspect-[16/9]`, full column width, `rounded-2xl`, `1px solid #E2E8F0` border, `object-cover`, `priority` (LCP).
+- Facts row (`grid-cols-1 sm:grid-cols-2 gap-4`): two white chips (radius 12px, border, padding 20px) — each with a 48px `#EFF6FF` circle + primary icon (ClockIcon / RouteIcon, 24px) and a stacked label: 11px Bold uppercase tracking-widest primary + 14px Semi-bold value: **Travel Time** (`travelTime` from data) and **Pickup Area** (Cavite — metro & province-wide on request).
+- Intro: 15px Regular `#64748B`, line-height relaxed, max-width 48rem (keyword-rich first sentence, editable in `destinations.ts`).
+- Recommended vehicle card: white, radius 12px, border, padding 24px; `sm:flex-row` split. Left: 48px `#EFF6FF` circle + CarIcon, label "RECOMMENDED VEHICLE" (11px Bold caps primary), vehicle name 18px Bold, note 14px muted. Right: two buttons (44px, radius 8px): **View Photos & Rates** solid primary → `/vehicles/{slug}`; **Book This Trip** outline primary + Messenger icon → Messenger.
+- FAQ block: max-width 48rem — h2 "{name} Rental — FAQs" 24px Bold + muted sub-line; shared accordion pattern (identical to home FAQ items: white, border, radius 12px, grid-rows transition, first item open) driven by `DestinationFaq` (client component accepting `questions` prop; home FAQ keeps the shared `faqs` array).
+- "Other Routes We Cover": h2 24px Bold + grid of the other 5 destinations (`sm:grid-cols-2 lg:grid-cols-3` gap 20px) using the home destination-card language — whole-card links to `/destinations/{slug}` (internal linking + anchor text).
+- CTA band: navy gradient `#0B192E → #071120` `rounded-2xl`, centered, padding 48px/64px: "Ready to head to {name}?" 24→28px Bold white + sub 14px white/70 + button row (Messenger solid primary, WhatsApp white outline) — same language as the home Quick Contact band.
+- Metadata (`generateMetadata` per slug): title from `pageTitle` (e.g. "Van Rental to Tagaytay | Mariquina Travel"), description, canonical on `https://www.mariquinatravel.com/destinations/{slug}`, OG image = destination cover (absolute URL), Twitter summary_large_image.
+- JSON-LD (single script, `@graph`): **BreadcrumbList** (Home → {name}) + **FAQPage** (the 3 destination FAQs). No fabricated `aggregateRating` — review markup is only to be added once real Google/Platform reviews exist (Search Console policy).
+- Cover photos: `tagaytay.jpg`, `la-union.jpg`, `batangas.jpg`, `zambales.jpg` are free-license Wikimedia Commons photos (CC BY-SA 4.0 / CC BY 4.0; photographers: Ralff Nestor Nacor — Taal Lake from Tagaytay; San Juan Beach La Union — Ralff Nestor Nacor; Calayo Beach Nasugbu — "Ten Thousand Strangers"; Nagsasa Beach — Mariajerty), pre-compressed via the same image policy (≤2048px, mozjpeg q85). Replace with the client's own trip photos when available (rename file → update `destinations.ts`).
+
 ---
 
 ## 3.5 Responsive & Mobile Behavior
 
 - **Breakpoints (Tailwind default):** `sm` 640px · `md` 768px · `lg` 1024px · `xl` 1280px. Build mobile-first: base styles = phone, then layer up.
 - **Nav:** desktop links + phone show at `xl`; hamburger panel below `xl` (link rows 44px tall). Phone number hidden below `md` (available in the mobile panel); "Message Us" button hidden below `sm`.
-- **Hero:** `min-h-svh` (not `min-h-screen`) so the full-height section uses the small viewport height — no URL-bar jump on mobile browsers. Headline 36px mobile → 52px `sm` → 56px `lg`, wraps naturally. Scroll-hint badge sits `bottom-24px`; content padded `pt-28 pb-20`.
-- **Grids:** vehicles `1 → 2 (sm) → 3 (md)`; how-it-works `1 → 3 (sm)`; why-us stacks to 1 col below `lg` (image below text); promo banner 1 col below `lg` (image hidden, gradient panel only); travel photos `1 → 2 (sm) → 3 (lg)`; footer `1 → 2 (sm) → 5 (lg)`.
+- **Hero:** `min-h-svh` (not `min-h-screen`) so the full-height section uses the small viewport height — no URL-bar jump on mobile browsers. Headline 36px mobile → 44px `sm` → 50px `lg`, wraps naturally. Scroll-hint badge sits `bottom-24px`; content padded `pt-28 pb-20`.
+- **Grids:** vehicles `1 → 2 (sm) → 3 (md)`; how-it-works `1 → 3 (sm)`; why-us stacks to 1 col below `lg` (image below text); promo banner 1 col below `lg` (image hidden, gradient panel only); travel photos `1 → 2 (sm) → 3 (lg)`; destinations `1 → 2 (sm) → 3 (lg)`; footer `1 → 2 (sm) → 6 (lg)`.
 - **Testimonials:** below `md`, arrows hide and cards are full-width with native snap scroll (`snap-x snap-mandatory`, swipeable).
 - **Forms:** inputs `text-base` (16px) below `sm` — prevents iOS auto-zoom; date row stacks to 1 col below `sm`; submit button full-width.
 - **Tap targets:** interactive elements ≥40px tall minimum (buttons `h-10`+; nav rows 44px; icon buttons 40×40).
@@ -206,7 +224,7 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 **Typography rules**
 - Body text (all copy, buttons, nav, form fields): **Figtree** (variable 300–900), loaded self-hosted via `next/font` (`--font-figtree` → `--font-sans`).
 - Display text (all `h1`, `h2`, `h3` — section headings, card titles, hero, CTA headings): **Bricolage Grotesque** (variable 200–800), `--font-bricolage` → `--font-display`. Applied globally via `h1, h2, h3 { font-family: var(--font-display) }`.
-- Hero `h1` ("Your Journey, Our Wheels") stays on a single line at `lg`+ (`lg:whitespace-nowrap`); below `lg` it wraps naturally and "Our Wheels" falls to its own centered amber line.
+- Hero `h1` ("Van & Car Rental in Cavite — Manila, Baguio & Tagaytay") wraps naturally at all breakpoints (no `whitespace-nowrap`); "Cavite" is Amber `#F59E0B`, the rest White. Keywords echo the title tag "Van & Car Rental in Cavite | Mariquina Travel".
 - **Tab/home-screen icons** (same logo mark, center-cropped to square from `public/images/logo/logo.png`): `app/icon.png` 512×512 (browser tab, auto-linked `rel="icon"`), `app/apple-icon.png` 180×180 (iOS/Android home screen), `app/favicon.ico` multi-size 16/32/48 (legacy browsers).
 
 **Notes**

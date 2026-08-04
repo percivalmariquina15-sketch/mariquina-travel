@@ -12,6 +12,7 @@ import {
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Vehicles", href: "#vehicles" },
+  { label: "Destinations", href: "#destinations" },
   { label: "Why Us", href: "#why-us" },
   { label: "Contact", href: "#contact" },
 ];

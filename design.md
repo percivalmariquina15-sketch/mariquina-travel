@@ -60,7 +60,7 @@ Car & Van Rental Landing Page · Lead-Gen (Messenger / Call / Email) · No Booki
 
 ### B. Hero Banner Section
 - Height: 100vh (min), vertically centered content. The section uses `-mt-[73px]` (negative top margin equal to the header's full height: 72px bar + 1px bottom border) so the image extends up behind the sticky transparent navbar without leaving a white gap; the navbar (z-50) renders on top of the image's top 73px.
-- Background: full-bleed vehicle photo (`/images/hero-van-2.jpg` — white van parked near mountains, road-trip scene) with a dark navy gradient scrim overlay (`#0B192E` at 95% → 75% → 40% opacity, left to right) for readability.
+- Background: full-bleed vehicle photo (`/images/vehicles/van.jpg` — first van photo) with a dark navy gradient scrim overlay (`#0B192E` at 95% → 75% → 40% opacity, left to right) for readability.
 - Content column: centered both ways (container `justify-center`, column `flex flex-col items-center text-center`, max-width 640px), all text centered:
   - Headline: "Van & Car Rental in **Cavite** — Manila, Baguio & Tagaytay" — 50px (44px on tablet, 36px mobile), Bold 800, line-height 1.15, White; the route city "Cavite" Amber `#F59E0B`. Wraps naturally (no `whitespace-nowrap`) across two–three short lines, keeping the lead keyword "Van & Car Rental in Cavite" intact for search relevance (matches the site title tag).
   - Body: 15px Regular 400, line-height 1.6, White 80%.

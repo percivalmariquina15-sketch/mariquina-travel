@@ -6,8 +6,8 @@ export default function Hero() {
     <section id="home" className="relative -mt-[73px] overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-van-2.jpg"
-          alt="White van parked near mountains on a road trip"
+          src="/images/vehicles/van.jpg"
+          alt="Mariquina Travel van available for rent"
           fill
           priority
           sizes="100vw"

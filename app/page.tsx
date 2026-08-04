@@ -24,7 +24,7 @@ const schemaOrg = {
       name: "Mariquina Travel",
       url: siteUrl,
       telephone: "+639926723651",
-      email: "percivalmariquina15@gmail.com",
+      email: "mariquinatravelaandtours@gmail.com",
       image: `${siteUrl}/images/og-image.jpg`,
       priceRange: "₱₱",
       currenciesAccepted: "PHP",

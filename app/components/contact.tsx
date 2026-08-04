@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   CheckIcon,
   MailIcon,
@@ -32,8 +32,8 @@ const contactColumns = [
   {
     icon: MailIcon,
     title: "Email Us",
-    value: "percivalmariquina15@gmail.com",
-    href: "mailto:percivalmariquina15@gmail.com",
+    value: "mariquinatravelaandtours@gmail.com",
+    href: "mailto:mariquinatravelaandtours@gmail.com",
   },
   {
     icon: WalletIcon,
@@ -57,12 +57,33 @@ type FormStatus = "idle" | "sending" | "success" | "error";
 export default function Contact() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const formRef = useRef<HTMLFormElement>(null);
+  const doneRef = useRef<HTMLButtonElement>(null);
+
+  const closeModal = useCallback(() => {
+    formRef.current?.reset();
+    setStatus("idle");
+  }, []);
+
+  useEffect(() => {
+    if (status !== "success") return;
+    doneRef.current?.focus();
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeModal();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [status, closeModal]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setStatus("sending");
     try {
-      const response = await fetch("https://formspree.io/f/mqeroolq", {
+      const response = await fetch("https://formspree.io/f/mzeppbpy", {
         method: "POST",
         body: new FormData(event.currentTarget),
         headers: { Accept: "application/json" },
@@ -123,29 +144,6 @@ export default function Contact() {
         </div>
 
         <div id="inquiry-form" className="mx-auto mt-10 max-w-2xl scroll-mt-[73px]">
-          {status === "success" ? (
-            <div className="flex flex-col items-center rounded-xl border border-border bg-white p-8 text-center sm:p-10">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-tint text-primary">
-                <CheckIcon className="h-6 w-6" />
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-ink">
-                Booking Request Sent!
-              </h3>
-              <p className="mt-2 max-w-sm text-sm text-muted">
-                We&apos;ll reply to confirm your booking via Messenger or email.
-              </p>
-              <button
-                type="button"
-                onClick={() => {
-                  formRef.current?.reset();
-                  setStatus("idle");
-                }}
-                className="mt-5 text-sm font-semibold text-primary transition-colors hover:text-primary-hover"
-              >
-                Send another request
-              </button>
-            </div>
-          ) : (
           <form
             ref={formRef}
             onSubmit={handleSubmit}
@@ -365,6 +363,56 @@ export default function Contact() {
               </button>
             </div>
           </form>
+
+          {status === "success" && (
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="booking-success-title"
+              className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+            >
+              <button
+                type="button"
+                aria-label="Close success message"
+                onClick={closeModal}
+                className="absolute inset-0 cursor-default bg-navy/95"
+              />
+              <div className="relative flex w-full max-w-md flex-col items-center rounded-2xl border border-border bg-white p-8 text-center sm:p-10">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-tint text-primary">
+                  <CheckIcon className="h-6 w-6" />
+                </span>
+                <h3
+                  id="booking-success-title"
+                  className="mt-4 text-lg font-bold text-ink"
+                >
+                  Booking Request Sent!
+                </h3>
+                <p className="mt-2 max-w-sm text-sm text-muted">
+                  We&apos;ll reply to confirm your booking via Messenger or
+                  email.
+                </p>
+                <div className="mt-6 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+                  <button
+                    ref={doneRef}
+                    type="button"
+                    onClick={closeModal}
+                    className="flex h-11 items-center justify-center rounded-lg bg-primary px-6 text-sm font-bold text-white transition-colors hover:bg-primary-hover"
+                  >
+                    Done
+                  </button>
+                  <a
+                    href="https://www.messenger.com/t/256559060865144"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeModal}
+                    className="flex h-11 items-center justify-center gap-2 rounded-lg border border-primary px-6 text-sm font-semibold text-primary transition-colors hover:bg-tint"
+                  >
+                    <MessengerIcon className="h-4 w-4" />
+                    Message Us on Messenger
+                  </a>
+                </div>
+              </div>
+            </div>
           )}
         </div>
       </div>

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Figtree } from "next/font/google";
 import "./globals.css";
 
-const siteUrl = "https://mariquinatravel.com";
+const siteUrl = "https://www.mariquinatravel.com";
 
 export const viewport: Viewport = {
   themeColor: "#0b192e",

@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://mariquinatravel.com/sitemap.xml",
+    sitemap: "https://www.mariquinatravel.com/sitemap.xml",
   };
 }

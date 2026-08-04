@@ -13,7 +13,7 @@ import Footer from "./components/footer";
 import MessengerButton from "./components/messenger-button";
 import { faqs } from "./lib/faqs";
 
-const siteUrl = "https://mariquinatravel.com";
+const siteUrl = "https://www.mariquinatravel.com";
 
 const schemaOrg = {
   "@context": "https://schema.org",

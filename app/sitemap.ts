@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { vehicles } from "./lib/vehicles";
 
-export const BASE_URL = "https://mariquinatravel.com";
+export const BASE_URL = "https://www.mariquinatravel.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const vehicleUrls: MetadataRoute.Sitemap = vehicles

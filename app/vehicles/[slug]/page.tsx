@@ -6,7 +6,7 @@ import { ChevronLeftIcon } from "../../components/icons";
 import PhotoGallery from "../../components/photo-gallery";
 import { vehicles, type Vehicle } from "../../lib/vehicles";
 
-const siteUrl = "https://mariquinatravel.com";
+const siteUrl = "https://www.mariquinatravel.com";
 
 export function generateStaticParams() {
   return vehicles.filter((v) => v.page).map((v) => ({ slug: v.slug }));
